@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Sembunyikan scrollbar */
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    transition: background-color 1s ease-in;
+}
+
+/* Hitungan Mundur */
+#countdown {
+    font-size: 15vw;
+    font-weight: bold;
+    z-index: 10;
+    transition: opacity 0.5s;
+    color: black;
+}
+
+/* Partikel */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Mulai tersembunyi */
+    transition: opacity 1s ease-in;
+}
+
+/* Teks Akhir */
+#final-text {
+    position: absolute;
+    bottom: 5vh;
+    font-size: 5vw;
+    font-family: 'fantasy', cursive; /* Ganti dengan font keren pilihan Anda */
+    letter-spacing: 0.5vw;
+    opacity: 0;
+    transition: opacity 1s ease-in 2s; /* Muncul perlahan setelah animasi selesai */
+    z-index: 10;
+}
+
+/* Animasi Komet */
+#komet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px #ffffff99;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 5;
+    /* CSS Komet untuk efek trail/ekor */
+    animation: komet-trail 4s ease-in-out forwards; 
+}
+
+/* Kelas untuk Transisi Layar Hitam */
+.black-screen {
+    background-color: #000 !important;
+}
+
+/* Keyframes untuk Animasi Komet */
+@keyframes komet-trail {
+    0% { top: 0; opacity: 1; transform: translateX(-50%); }
+    25% { top: 40%; transform: translateX(-60%); }
+    50% { top: 50%; transform: translateX(-50%); } /* Berhenti di tengah */
+    75% { top: 50%; transform: translateX(-50%); opacity: 1; }
+    100% { top: 50%; transform: translateX(-50%); opacity: 0; } /* Menghilang sebelum ledakan */
+}
